@@ -148,6 +148,7 @@ spec:
         description: ${{ parameters.description }}
         repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}
         defaultBranch: main
+        repoVisibility: public
     
     - id: register
       name: Register
