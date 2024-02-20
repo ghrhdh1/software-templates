@@ -103,16 +103,16 @@ spec:
               title: Repo Host
               type: string
               description: Your SCM host
-              default: ${GITHUB_ORG_URL}
+              default: github.com
               enum:
-                - ${GITHUB_ORG_URL}
+                - github.com
             owner:
               title: Repo Owner
               type: string
               description: Your SCM host organization/group
-              default: ${GITHUB_ORG}
+              default: ghrhdh1
               enum:
-                - ${GITHUB_ORG}
+                - ghrhdh1
 
   steps:
     - id: template
