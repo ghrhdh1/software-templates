@@ -146,7 +146,7 @@ spec:
       input:
         allowedHosts: ['github.com']
         description: ${{ parameters.description }}
-        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{parameters.component_id}}
+        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}
         defaultBranch: main
     
     - id: register
@@ -187,7 +187,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}-gitops"
         title: gitops resources for ${{ parameters.component_id }}
         description: gitops resources for ${{ parameters.component_id }}
         sourcePath: ./tenant-gitops
