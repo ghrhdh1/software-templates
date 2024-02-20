@@ -103,16 +103,16 @@ spec:
               title: Repo Host
               type: string
               description: Your SCM host
-              default: gitlab-gitlab.apps.cluster-dzgjx.dynamic.redhatworkshops.io
+              default: ${GITHUB_ORG_URL}
               enum:
-                - gitlab-gitlab.apps.cluster-dzgjx.dynamic.redhatworkshops.io
+                - ${GITHUB_ORG_URL}
             owner:
               title: Repo Owner
               type: string
               description: Your SCM host organization/group
-              default: development
+              default: ${GITHUB_ORG}
               enum:
-                - development
+                - ${GITHUB_ORG}
 
   steps:
     - id: template
@@ -137,12 +137,14 @@ spec:
           port: 8080
 
     - id: publish
-      name: Publish
-      action: publish:gitlab
+      name: Publishing to the Source Code Repository
+      action: publish:github
       input:
-        repoUrl: "${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}"
-        repoVisibility: public
-
+        allowedHosts: ['github.com']
+        description: ${{ parameters.description }}
+        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{parameters.component_id}}
+        defaultBranch: main
+    
     - id: register
       name: Register
       action: catalog:register
@@ -178,13 +180,15 @@ spec:
 
     - id: publish-gitops
       name: Publishing to Resource Repository
-      action: publish:gitlab
+      action: publish:github
       input:
-        repoUrl: "${{ parameters.repo.host }}?owner=${{ parameters.repo.owner }}&repo=${{parameters.component_id}}-gitops"
+        allowedHosts: ['github.com']
+        repoUrl: github.com?owner=${{ parameters.githubOrg }}&repo=${{parameters.component_id}}-gitops"
         title: gitops resources for ${{ parameters.component_id }}
         description: gitops resources for ${{ parameters.component_id }}
         sourcePath: ./tenant-gitops
         repoVisibility: public
+        defaultBranch: main
 
     - id: create-argocd-resources
       name: Create ArgoCD Resources
