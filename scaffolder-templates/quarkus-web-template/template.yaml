@@ -195,7 +195,6 @@ spec:
         defaultBranch: main
 
     - id: create-argocd-resources
-      if: ${{ parameters.gitops }}
       name: Create ArgoCD Resources
       action: argocd:create-resources
       input:
