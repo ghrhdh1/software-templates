@@ -94,8 +94,6 @@ spec:
     - title: Application repository Information
       required:
         - repo
-        - githubOrg
-        - owner
       properties:
         repo:
           title: Repository Location
