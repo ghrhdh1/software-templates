@@ -188,7 +188,7 @@ spec:
       action: publish:github
       input:
         allowedHosts: ['github.com']
-        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}-gitops.git
         title: gitops resources for ${{ parameters.component_id }}
         description: gitops resources for ${{ parameters.component_id }}
         sourcePath: ./tenant-gitops
@@ -202,7 +202,7 @@ spec:
         appName: ${{ parameters.component_id }}-bootstrap
         argoInstance: openshift-gitops
         namespace: assemble-argocd
-        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}-gitops"
+        repoUrl: github.com?owner=${{ parameters.repo.githubOrg }}&repo=${{parameters.component_id}}-gitops.git
         path: 'argocd/'
 
 
