@@ -201,7 +201,7 @@ spec:
       input:
         appName: ${{ parameters.component_id }}-bootstrap
         argoInstance: openshift-gitops
-        namespace: assemble-argocd
+        namespace: openshift-gitops
         repoUrl: https://github.com/${{ parameters.repo.githubOrg }}/${{parameters.component_id}}-gitops.git
         path: 'argocd/'
 
