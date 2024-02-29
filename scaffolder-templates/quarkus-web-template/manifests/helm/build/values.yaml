@@ -19,3 +19,14 @@ image:
   host: ${{ values.image_host }}
   name: ${{ values.image_name }}
   tag: ${{ values.image_tag }}
+
+vault:
+  #namespace where the ServiceAccount is able to authenticate agains Vault 
+  adminNamespace: 'vault-admin'
+  adminAuthEngineMountName: 'dev-cluster-admin'
+  #Vault admin role associated to the Kubernetes Auth Engine Mount
+  adminRole: 'vault-admin'
+  appAuthEngineMountName: 'dev-cluster'
+  #must match with the 'metadata.name' defined in the QuaySecretEngineConfig CRD
+  githubSecretEngineConfig: 'ghrhdh1' #CHANGE-ME!!!
+  quaySecretEngineConfig: 'rhdh1' #CHANGE-ME!!!
