@@ -5,14 +5,8 @@ metadata:
 spec:
   params:
     - name: source-tag
-      value: $(body.tag)
-{{- if ne .Values.image.registry "Quay" }}
-    - name: source-image
-      value: {{ include "image.preprod-url" . }}
-    - name: destination-image
-      value: {{ include "image.prod-url" . }}
-{{- end }}
+      value: $(extensions.source)
     - name: destination-tag
-      value: prod-$(body.tag)
+      value: $(body.ref)
     - name: namespace
       value: {{ .Values.app.name }}-prod

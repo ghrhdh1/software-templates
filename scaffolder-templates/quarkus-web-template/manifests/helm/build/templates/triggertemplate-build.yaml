@@ -28,8 +28,6 @@ spec:
             value: $(tt.params.git-revision)
           - name: output-image
             value: $(tt.params.output-image)
-          - name: component-id
-            value: {{ .Values.app.name }}
         pipelineRef:
           name: {{ .Values.app.name }}-build
         serviceAccountName: pipeline
@@ -45,11 +43,5 @@ spec:
                     storage: 1Gi
           - emptyDir: {}
             name: maven-settings
-{{- if eq .Values.image.registry "Quay" }}
-          - name: docker-config
-            secret:
-              secretName: {{ .Values.app.name }}-registry-creds
-{{- else }}
-          - name: docker-config
-            emptyDir: {}
-{{- end }}
+          - emptyDir: {}
+            name: image-urls-scm

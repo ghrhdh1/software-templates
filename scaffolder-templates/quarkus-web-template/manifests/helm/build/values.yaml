@@ -3,22 +3,22 @@ app:
   namespace: ${{values.component_id}}-dev
   cluster: ${{ values.cluster }}
 
+
 git:
   branch: main
   repo: ${{ values.source_repository }}
   org: ${{ values.git_owner }}
   name: ${{ values.repository_name }}
-  host: ${{ values.repository_host }}
-  token: ''
-  webhookSecret: ''
-
+  apiUrl: 'https://api.github.com/' #REPLACE in case of a hosted Git Hub Enterprise (eg. https://my.github.com/api/v3/)
 
 image:
-  registry: ${{values.image_registry}}
-  organization: ${{values.image_organization}}
+  registry: ${{ values.image_registry }}
   host: ${{ values.image_host }}
+  organization: ${{ values.image_organization }}
   name: ${{ values.image_name }}
-  tag: ${{ values.image_tag }}
+
+maven:
+  mirrorUrl: 'https://repo1.maven.org/maven2/'
 
 vault:
   #namespace where the ServiceAccount is able to authenticate agains Vault 

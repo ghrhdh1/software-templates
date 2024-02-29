@@ -7,6 +7,6 @@ spec:
     - name: source-tag
       value: latest
     - name: destination-tag
-      value: $(extensions.tag_version)
+      value: $(body.ref)
     - name: namespace
       value: {{ .Values.app.name }}-preprod
