@@ -13,6 +13,6 @@ spec:
    # - https://github.com/ghrhdh1/software-templates/blob/main/scaffolder-templates/spring-boot-backend-template/template.yaml
     - https://github.com/ghrhdh1/software-templates-na/blob/main/templates/github/spring-boot-backend/template.yaml
    # - https://github.com/ghrhdh1/software-templates/blob/main/scaffolder-templates/quarkus-backend-template/template.yaml
-    - https://github.com/ghrhdh1/software-templates/blob/main/templates/github/quarkus-web-template/template.yaml
+    - https://github.com/ghrhdh1/software-templates-na/blob/main/templates/github/quarkus-web-template/template.yaml
    # - https://github.com/ghrhdh1/software-templates/blob/main/scaffolder-templates/argocd-template/template.yaml
    # - https://github.com/ghrhdh1/software-templates/blob/main/scaffolder-templates/ansible-job/template.yaml
